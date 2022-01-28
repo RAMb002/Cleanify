@@ -2,7 +2,9 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sortapp/authentication/dsignup.dart';
 import 'package:sortapp/main.dart';
+import 'package:sortapp/splash/splash1.dart';
 import 'package:transition/transition.dart';
 
 class DSignIn extends StatefulWidget {
@@ -201,7 +203,14 @@ class _DSignInState extends State<DSignIn> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
                         ),
-                        onPressed: () async {}),
+                        onPressed: () async {
+                          Navigator.pushReplacement(
+                              context,
+                              Transition(
+                                  child: SplashScreen1(),
+                                  transitionEffect:
+                                      TransitionEffect.RIGHT_TO_LEFT));
+                        }),
                   )
                 ],
               ),
@@ -217,7 +226,14 @@ class _DSignInState extends State<DSignIn> {
                   ),
                   MaterialButton(
                     splashColor: Colors.white,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          Transition(
+                              child: DSignUp(),
+                              transitionEffect:
+                                  TransitionEffect.RIGHT_TO_LEFT));
+                    },
                     child: Text(
                       'Sign up',
                       style: TextStyle(
