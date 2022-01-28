@@ -65,6 +65,8 @@ flutter:
     - assets/tflite/qunatized.tflite
     - assets/tflite/rohit1.tflite
     - assets/tflite/rohit.txt
+    - assets/tflite/rohit2.tflite
+    - assets/tflite/rohit2.txt
     - assets/images/main1.jpg
     - assets/images/main2.jpg
     - assets/images/logo.jpg

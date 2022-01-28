@@ -1,7 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:sortapp/main.dart';
+import 'package:sortapp/inner/dispoer1.dart';
 import 'package:sortapp/user.dart';
 
 class SplashScreen1 extends StatefulWidget {
@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen1> {
     return AnimatedSplashScreen(
       duration: 2500,
       splash: 'assets/images/logo.jpg',
-      nextScreen: user(),
+      nextScreen: Displayer(),
       splashTransition: SplashTransition.slideTransition,
     );
   }

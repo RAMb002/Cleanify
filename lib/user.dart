@@ -61,8 +61,8 @@ class _userState extends State<user> {
 
   loadModel() async {
     await Tflite.loadModel(
-        model: "assets/tflite/rohit1.tflite",
-        labels: "assets/tflite/rohit.txt");
+        model: "assets/tflite/rohit2.tflite",
+        labels: "assets/tflite/rohit2.txt");
   }
 
   @override
