@@ -17,13 +17,13 @@ class _ov1State extends State<ov1> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: Color(0xff5ebcd6),
           title: Padding(
             padding: const EdgeInsets.only(left: 0),
             child: Text(
               widget.name.toUpperCase(),
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 19,
                 fontWeight: FontWeight.bold,
               ),
             ),

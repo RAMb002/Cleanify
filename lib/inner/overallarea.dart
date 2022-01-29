@@ -18,13 +18,13 @@ class _OverallAreaState extends State<OverallArea> {
       child: Scaffold(
         drawer: MenuBar1(email: widget.email),
         appBar: AppBar(
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: Color(0xff5ebcd6),
           title: Padding(
             padding: const EdgeInsets.only(left: 0),
             child: Text(
               'AREA DISPOSAL',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 19,
                 fontWeight: FontWeight.bold,
               ),
             ),

@@ -27,8 +27,8 @@ class _DisplayerState extends State<Displayer> {
   var recycle = [
     "clothes",
   ];
-  Color c1 = Colors.blueAccent;
-  Color c2 = Color(0xff5ebcd6);
+  Color c1 = Color(0xff5ebcd6);
+  Color c2 = Colors.blueAccent;
 
   Future getimage(bool isCamera) async {
     XFile image;
@@ -215,8 +215,8 @@ class _DisplayerState extends State<Displayer> {
                       IconButton(
                           onPressed: () {
                             setState(() {
-                              c1 = Colors.blueAccent;
-                              c2 = Color(0xff5ebcd6);
+                              c1 = Color(0xff5ebcd6);
+                              c2 = Colors.blueAccent;
                               _image = null;
                               _output = null;
                               counter = 1;

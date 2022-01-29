@@ -83,7 +83,7 @@ class _DisplayBar1State extends State<DisplayBar1> {
               name: "Electrical Waste",
               value: electrical),
         ],
-        msg: "Overall Waste",
+        msg: "Today's Area Disposal",
       )),
     );
   }

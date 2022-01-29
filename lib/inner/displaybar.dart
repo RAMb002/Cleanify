@@ -68,7 +68,7 @@ class _DisplayBarState extends State<DisplayBar> {
             color: charts.ColorUtil.fromDartColor(Colors.red),
             name: "Electrical Waste",
             value: electrical),
-      ], msg: "Area OverAll Waste")),
+      ], msg: "OverAll Disposal")),
     );
   }
 }

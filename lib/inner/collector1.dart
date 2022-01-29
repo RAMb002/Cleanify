@@ -82,7 +82,7 @@ class _Collector1State extends State<Collector1> {
     return Scaffold(
       drawer: MenuBar1(email: widget.email),
       appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Color(0xff5ebcd6),
         elevation: 0,
         actions: [
           IconButton(

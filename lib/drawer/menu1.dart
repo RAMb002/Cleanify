@@ -21,7 +21,7 @@ class _MenuBar1State extends State<MenuBar1> {
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [Colors.blueAccent, Colors.white])),
+                colors: [Color(0xff5ebcd6), Colors.white])),
         child: ListView(
           padding: EdgeInsets.all(25),
           children: <Widget>[

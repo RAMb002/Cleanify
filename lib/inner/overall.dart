@@ -16,15 +16,15 @@ class _OverallState extends State<Overall> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        drawer: MenuBar(email: widget.email, c1: Colors.blueAccent),
+        drawer: MenuBar(email: widget.email, c1: Color(0xff5ebcd6)),
         appBar: AppBar(
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: Color(0xff5ebcd6),
           title: Padding(
             padding: const EdgeInsets.only(left: 0),
             child: Text(
               'ANALYTICS',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 19,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -39,7 +39,7 @@ class _OverallState extends State<Overall> {
                     "OVERALL",
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
-                      fontSize: 20,
+                      fontSize: 15,
                       color: Colors.black,
                     ),
                   ),
@@ -52,7 +52,7 @@ class _OverallState extends State<Overall> {
                     "TODAY",
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
-                      fontSize: 20,
+                      fontSize: 15,
                       color: Colors.black,
                     ),
                   ),
