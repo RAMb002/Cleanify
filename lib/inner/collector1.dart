@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:sortapp/inner/overall.dart';
+import 'package:sortapp/inner/ov1.dart';
+import 'package:sortapp/inner/ov2.dart';
 import 'package:sortapp/main.dart';
 import 'package:intl/intl.dart';
-import 'package:sortapp/over/pie.dart';
 import 'package:transition/transition.dart';
 
 class Collector1 extends StatefulWidget {
@@ -101,54 +101,72 @@ class _Collector1State extends State<Collector1> {
           ? Container(
               child: ListView.builder(
               itemCount: mode.length,
-              itemBuilder: (BuildContext context, index) => new Column(
-                children: <Widget>[
-                  if (index != 0)
-                    Divider(
-                      thickness: 0.5,
-                    ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: ListTile(
-                      onLongPress: () {},
-                      onTap: () {},
-                      leading: Container(
-                        child: CircleAvatar(
-                          radius: 27,
-                          backgroundImage: NetworkImage(mode[index].photo),
+              itemBuilder: (BuildContext context, index) => GestureDetector(
+                onTap: () {
+                  if (mode[index].present == 1) {
+                    Navigator.push(
+                        context,
+                        Transition(
+                            child: ov1(
+                                email: mode[index].email,
+                                name: mode[index].name),
+                            transitionEffect: TransitionEffect.FADE));
+                  } else {
+                    Navigator.push(
+                        context,
+                        Transition(
+                            child: ov2(
+                                email: mode[index].email,
+                                name: mode[index].name),
+                            transitionEffect: TransitionEffect.FADE));
+                  }
+                },
+                child: Container(
+                  child: new Column(
+                    children: <Widget>[
+                      if (index != 0)
+                        Divider(
+                          thickness: 0.5,
                         ),
-                      ),
-                      title: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            mode[index].name,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 17,
-                              color: Color(0xff4d4d4d),
-                            ),
+                      ListTile(
+                        leading: Container(
+                          child: CircleAvatar(
+                            radius: 35,
+                            backgroundImage: NetworkImage(mode[index].photo),
                           ),
-                        ],
-                      ),
-                      subtitle: Container(
-                          padding: EdgeInsets.only(top: 5),
-                          child: Text(
-                            mode[index].email,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontSize: 12,
-                                color: Colors.black),
-                          )),
-                      trailing: CircleAvatar(
-                        child: Container(
-                          height: 15,
                         ),
-                        backgroundColor: mode[index].color,
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              mode[index].name,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 18,
+                                color: Color(0xff4d4d4d),
+                              ),
+                            ),
+                          ],
+                        ),
+                        subtitle: Container(
+                            padding: EdgeInsets.only(top: 5),
+                            child: Text(
+                              mode[index].email,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 14,
+                                  color: Colors.black),
+                            )),
+                        trailing: CircleAvatar(
+                          child: Container(
+                            height: 15,
+                          ),
+                          backgroundColor: mode[index].color,
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ))
           : Center(

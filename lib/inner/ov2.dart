@@ -1,28 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:sortapp/drawer/menu.dart';
-import 'package:sortapp/over/pie1.dart';
 import 'package:sortapp/over/pie.dart';
 
-class Overall extends StatefulWidget {
+class ov2 extends StatefulWidget {
   String email;
-  Overall({required this.email});
+  String name;
+  ov2({required this.email, required this.name});
   @override
-  _OverallState createState() => _OverallState();
+  _ov2State createState() => _ov2State();
 }
 
-class _OverallState extends State<Overall> {
+class _ov2State extends State<ov2> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 1,
       child: Scaffold(
-        drawer: MenuBar(email: widget.email, c1: Colors.blueAccent),
         appBar: AppBar(
           backgroundColor: Colors.blueAccent,
           title: Padding(
             padding: const EdgeInsets.only(left: 0),
             child: Text(
-              'ANALYTICS',
+              widget.name.toUpperCase(),
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -39,20 +37,7 @@ class _OverallState extends State<Overall> {
                     "OVERALL",
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
-                      fontSize: 20,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                height: 30,
-                child: Tab(
-                  child: Text(
-                    "TODAY",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20,
+                      fontSize: 15,
                       color: Colors.black,
                     ),
                   ),
@@ -63,7 +48,6 @@ class _OverallState extends State<Overall> {
         ),
         body: TabBarView(children: [
           Pie(email: widget.email),
-          Pie1(email: widget.email),
         ]),
       ),
     );

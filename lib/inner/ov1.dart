@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:sortapp/drawer/menu.dart';
 import 'package:sortapp/over/pie1.dart';
 import 'package:sortapp/over/pie.dart';
 
-class Overall extends StatefulWidget {
+class ov1 extends StatefulWidget {
   String email;
-  Overall({required this.email});
+  String name;
+  ov1({required this.email, required this.name});
   @override
-  _OverallState createState() => _OverallState();
+  _ov1State createState() => _ov1State();
 }
 
-class _OverallState extends State<Overall> {
+class _ov1State extends State<ov1> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        drawer: MenuBar(email: widget.email, c1: Colors.blueAccent),
         appBar: AppBar(
           backgroundColor: Colors.blueAccent,
           title: Padding(
             padding: const EdgeInsets.only(left: 0),
             child: Text(
-              'ANALYTICS',
+              widget.name.toUpperCase(),
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -39,7 +38,7 @@ class _OverallState extends State<Overall> {
                     "OVERALL",
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
-                      fontSize: 20,
+                      fontSize: 15,
                       color: Colors.black,
                     ),
                   ),
@@ -52,7 +51,7 @@ class _OverallState extends State<Overall> {
                     "TODAY",
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
-                      fontSize: 20,
+                      fontSize: 15,
                       color: Colors.black,
                     ),
                   ),
