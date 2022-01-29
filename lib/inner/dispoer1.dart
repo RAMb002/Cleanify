@@ -5,7 +5,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
 
 class Displayer extends StatefulWidget {
-  const Displayer({Key? key}) : super(key: key);
+  String email;
+  Displayer({required this.email});
 
   @override
   _DisplayerState createState() => _DisplayerState();

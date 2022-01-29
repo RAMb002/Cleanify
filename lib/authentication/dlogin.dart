@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -203,13 +204,35 @@ class _DSignInState extends State<DSignIn> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
                         ),
-                        onPressed: () async {
-                          Navigator.pushReplacement(
-                              context,
-                              Transition(
-                                  child: SplashScreen1(),
-                                  transitionEffect:
-                                      TransitionEffect.RIGHT_TO_LEFT));
+                        onPressed: () {
+                          FirebaseFirestore.instance
+                              .collection('disposer')
+                              .doc(email)
+                              .get()
+                              .then((DocumentSnapshot documentSnapshot) async {
+                            if (documentSnapshot.exists) {
+                              try {
+                                await FirebaseAuth.instance
+                                    .signInWithEmailAndPassword(
+                                        email: email, password: password)
+                                    .then((_) => Navigator.of(context)
+                                            .push(MaterialPageRoute(
+                                          builder: (context) => SplashScreen1(
+                                            email: email,
+                                          ),
+                                        )));
+                              } on FirebaseAuthException catch (e) {
+                                if (e.code == 'user-not-found') {
+                                  dis1(context, 'No user found for $email.');
+                                } else if (e.code == 'wrong-password') {
+                                  dis1(context,
+                                      'Wrong password provided for the $email.');
+                                }
+                              }
+                            } else {
+                              dis1(context, 'No user found for $email.');
+                            }
+                          });
                         }),
                   )
                 ],

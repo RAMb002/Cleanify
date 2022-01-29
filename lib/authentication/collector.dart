@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sortapp/splash/splash2.dart';
 
 class CSignIn extends StatefulWidget {
   const CSignIn({Key? key}) : super(key: key);
@@ -195,7 +197,36 @@ class _CSignInState extends State<CSignIn> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          FirebaseFirestore.instance
+                              .collection('collector')
+                              .doc(email)
+                              .get()
+                              .then((DocumentSnapshot documentSnapshot) async {
+                            if (documentSnapshot.exists) {
+                              try {
+                                await FirebaseAuth.instance
+                                    .signInWithEmailAndPassword(
+                                        email: email, password: password)
+                                    .then((_) => Navigator.of(context)
+                                            .push(MaterialPageRoute(
+                                          builder: (context) => SplashScreen2(
+                                            email: email,
+                                          ),
+                                        )));
+                              } on FirebaseAuthException catch (e) {
+                                if (e.code == 'user-not-found') {
+                                  dis1(context, 'No user found for $email.');
+                                } else if (e.code == 'wrong-password') {
+                                  dis1(context,
+                                      'Wrong password provided for the $email.');
+                                }
+                              }
+                            } else {
+                              dis1(context, 'No user found for $email.');
+                            }
+                          });
+                        }),
                   )
                 ],
               ),

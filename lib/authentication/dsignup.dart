@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -255,7 +256,24 @@ class _DSignUpState extends State<DSignUp> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
                         ),
-                        onPressed: () async {}),
+                        onPressed: () async {
+                          if (password == repassword) {
+                            FirebaseFirestore.instance
+                                .collection("requests")
+                                .add({
+                              "email": email,
+                              "password": password,
+                              "repassword": repassword,
+                              "aadhar": aadhar,
+                              "area": dropdownvalue,
+                            }).then((value) {
+                              dis2(context, "Request Sent Successfully!");
+                            });
+                          } else {
+                            dis1(
+                                context, "Password And Repassword is not same");
+                          }
+                        }),
                   )
                 ],
               ),
@@ -315,6 +333,45 @@ class _DSignUpState extends State<DSignUp> {
             child: Text(
               'OK',
               style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+            ),
+          )
+        ]);
+    showDialog(
+        context: context,
+        barrierDismissible: true,
+        barrierColor: Colors.transparent,
+        builder: (BuildContext context) {
+          return alertDialog;
+        });
+  }
+
+  void dis2(
+    BuildContext context,
+    String msg,
+  ) {
+    var alertDialog = AlertDialog(
+        title: Text(
+          'Successful',
+          style: TextStyle(
+              color: Colors.green, fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        content: Text(msg),
+        actions: [
+          FlatButton(
+            onPressed: () {
+              Navigator.pop(context);
+              setState(() {
+                email = "";
+                password = "";
+                repassword = "";
+                aadhar = 0;
+                dropdownvalue = "Valasar Colony,DPI";
+              });
+            },
+            child: Text(
+              'OK',
+              style:
+                  TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
             ),
           )
         ]);
