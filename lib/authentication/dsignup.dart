@@ -18,7 +18,7 @@ class _DSignUpState extends State<DSignUp> {
   String email = "";
   String password = "";
   String repassword = "";
-  int aadhar = 0;
+  String aadhar = "";
   FirebaseAuth auth = FirebaseAuth.instance;
   bool selected = false;
   Icon eye = Icon(Icons.visibility_off);
@@ -201,7 +201,7 @@ class _DSignUpState extends State<DSignUp> {
                   ),
                   onChanged: (value) {
                     setState(() {
-                      aadhar = value as int;
+                      aadhar = value;
                     });
                   },
                 ),
@@ -259,19 +259,30 @@ class _DSignUpState extends State<DSignUp> {
                         onPressed: () async {
                           if (password == repassword) {
                             FirebaseFirestore.instance
-                                .collection("requests")
-                                .add({
-                              "email": email,
-                              "password": password,
-                              "repassword": repassword,
-                              "aadhar": aadhar,
-                              "area": dropdownvalue,
-                            }).then((value) {
-                              dis2(context, "Request Sent Successfully!");
+                                .collection("disposer")
+                                .doc(email)
+                                .get()
+                                .then((DocumentSnapshot dc) {
+                              if (dc.exists) {
+                                dis2(context, "User Exists Already!");
+                              } else {
+                                FirebaseFirestore.instance
+                                    .collection("requests")
+                                    .doc(email)
+                                    .set({
+                                  "email": email,
+                                  "password": password,
+                                  "repassword": repassword,
+                                  "aadhar": aadhar,
+                                  "area": dropdownvalue,
+                                }).then((value) {
+                                  dis2(context, "Request Sent Successfully!");
+                                });
+                              }
                             });
                           } else {
-                            dis1(
-                                context, "Password And Repassword is not same");
+                            dis1(context,
+                                "Password And Repassword are not same");
                           }
                         }),
                   )
@@ -364,7 +375,7 @@ class _DSignUpState extends State<DSignUp> {
                 email = "";
                 password = "";
                 repassword = "";
-                aadhar = 0;
+                aadhar = "";
                 dropdownvalue = "Valasar Colony,DPI";
               });
             },
