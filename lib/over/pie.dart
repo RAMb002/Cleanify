@@ -14,9 +14,9 @@ class _PieState extends State<Pie> {
   var electrical;
   var recycle;
   final colorList = <Color>[
-    Colors.orange,
-    Colors.green,
     Colors.red,
+    Colors.green,
+    Colors.orange,
   ];
 
   _genearte() {
