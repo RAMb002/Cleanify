@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sortapp/drawer/menu1.dart';
 import 'package:sortapp/inner/ov1.dart';
 import 'package:sortapp/inner/ov2.dart';
 import 'package:sortapp/main.dart';
@@ -79,6 +80,7 @@ class _Collector1State extends State<Collector1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MenuBar1(email: widget.email),
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         elevation: 0,
