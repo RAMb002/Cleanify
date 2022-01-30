@@ -6,4 +6,5 @@ To begin with, in our project we are going to make a mobile application where th
 
 ## Demonstration Video of Cleanify
 
+[!DEMO VIDEO](https://user-images.githubusercontent.com/83878277/151716042-f071ba4d-a164-4003-acf1-d4e4f128d4b1.mp4)
 
