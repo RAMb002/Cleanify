@@ -227,8 +227,8 @@ class _DisplayerState extends State<Displayer> {
                       IconButton(
                           onPressed: () {
                             setState(() {
-                              c1 = Colors.blueAccent;
-                              c2 = Color(0xff5ebcd6);
+                              c1 = Color(0xff5ebcd6);
+                              c2 = Colors.blueAccent;
                               _image = null;
                               _output = null;
                               counter = 1;
