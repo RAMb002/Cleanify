@@ -81,23 +81,29 @@ class _Collector1State extends State<Collector1> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MenuBar1(email: widget.email),
-      appBar: AppBar(
-        backgroundColor: Color(0xff5ebcd6),
-        elevation: 0,
-        actions: [
-          IconButton(
-              onPressed: () {
-                FirebaseAuth.instance.signOut().then((value) => Navigator.push(
-                    context,
-                    Transition(
-                        child: StartPage(),
-                        transitionEffect: TransitionEffect.LEFT_TO_RIGHT)));
-              },
-              icon: Icon(
-                Icons.logout,
-                color: Colors.black,
-              ))
-        ],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80.0),
+        child: AppBar(
+          title: Text("DISPOSAL STATUS"),
+          backgroundColor: Color(0xff5ebcd6),
+          elevation: 0,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  FirebaseAuth.instance.signOut().then((value) =>
+                      Navigator.push(
+                          context,
+                          Transition(
+                              child: StartPage(),
+                              transitionEffect:
+                                  TransitionEffect.LEFT_TO_RIGHT)));
+                },
+                icon: Icon(
+                  Icons.logout,
+                  color: Colors.black,
+                ))
+          ],
+        ),
       ),
       body: (mode != null)
           ? Container(

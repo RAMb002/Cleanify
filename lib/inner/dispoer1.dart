@@ -304,7 +304,7 @@ class _DisplayerState extends State<Displayer> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        SizedBox(height: 5),
+                        SizedBox(height: 20),
                         if (_image != null)
                           Center(
                             child: Column(
@@ -339,19 +339,38 @@ class _DisplayerState extends State<Displayer> {
                                       dis1(context,
                                           "Are you sure to Dispose this item?");
                                     }),
-                                Padding(padding: EdgeInsets.only(top: 5)),
+                                Padding(padding: EdgeInsets.only(top: 0)),
                               ],
                             ),
                           ),
-                        Padding(padding: EdgeInsets.only(top: 40)),
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Padding(padding: EdgeInsets.only(left: 13)),
-                            ]),
+                        Padding(padding: EdgeInsets.only(top: 20)),
                         SizedBox(
-                          height: 30,
+                          height: 10,
                         ),
+                        if (_output != null)
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "The Disposed Item is classified as ",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
+                              SizedBox(
+                                height: 4,
+                              ),
+                              Text(
+                                _output,
+                                style: TextStyle(
+                                    color: c1,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
+                            ],
+                          ),
                         Padding(
                           padding: EdgeInsets.only(top: 50),
                         ),

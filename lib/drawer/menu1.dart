@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sortapp/inner/collector1.dart';
 import 'package:sortapp/inner/displaybar.dart';
 import 'package:sortapp/inner/overallarea.dart';
+import 'package:sortapp/main.dart';
 import 'package:transition/transition.dart';
 
 class MenuBar1 extends StatefulWidget {
@@ -52,6 +54,21 @@ class _MenuBar1State extends State<MenuBar1> {
                 text: 'Area',
               ),
             ),
+            GestureDetector(
+              onTap: () {
+                FirebaseAuth.instance.signOut().then((val) {
+                  Navigator.pushReplacement(
+                      context,
+                      Transition(
+                          child: StartPage(),
+                          transitionEffect: TransitionEffect.FADE));
+                });
+              },
+              child: ButtonTile(
+                icon: Icons.logout,
+                text: 'LOG-OUT',
+              ),
+            ),
           ],
         ),
       ),
@@ -88,7 +105,7 @@ class _MenuBar1State extends State<MenuBar1> {
       child: Column(
         children: <Widget>[
           Padding(padding: EdgeInsets.only(top: 20)),
-          Text('CLEANIFY',
+          Text('C-CLEANIFY',
               style: GoogleFonts.rakkas(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
