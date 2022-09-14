@@ -286,7 +286,7 @@ class _DSignInState extends State<DSignIn> {
         ),
         content: Text(error),
         actions: [
-          FlatButton(
+          TextButton(
             onPressed: () {
               Navigator.pop(context);
             },

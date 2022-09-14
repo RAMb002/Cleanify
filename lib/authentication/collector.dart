@@ -252,7 +252,7 @@ class _CSignInState extends State<CSignIn> {
         ),
         content: Text(error),
         actions: [
-          FlatButton(
+          TextButton(
             onPressed: () {},
             child: Text(
               'OK',

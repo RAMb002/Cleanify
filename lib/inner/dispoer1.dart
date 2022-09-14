@@ -396,7 +396,7 @@ class _DisplayerState extends State<Displayer> {
         ),
         content: Text(msg),
         actions: [
-          FlatButton(
+          TextButton(
             onPressed: () {
               Navigator.pop(context);
             },
@@ -405,7 +405,7 @@ class _DisplayerState extends State<Displayer> {
               style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
             ),
           ),
-          FlatButton(
+          TextButton(
             onPressed: () {
               Navigator.pop(context);
               setState(() {

@@ -108,12 +108,12 @@ class _userState extends State<user> {
                   )
                 : Container(),
             (_image != null)
-                ? RaisedButton(
+                ? TextButton(
                     onPressed: () {
                       upload(this._image);
                     },
                     child: Text("UPLOAD"),
-                    color: Colors.amber,
+                    // color: Colors.amber,
                   )
                 : Container(),
             if (url != null)

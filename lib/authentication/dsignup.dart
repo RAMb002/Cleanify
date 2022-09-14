@@ -337,7 +337,7 @@ class _DSignUpState extends State<DSignUp> {
         ),
         content: Text(error),
         actions: [
-          FlatButton(
+          TextButton(
             onPressed: () {
               Navigator.pop(context);
             },
@@ -368,7 +368,7 @@ class _DSignUpState extends State<DSignUp> {
         ),
         content: Text(msg),
         actions: [
-          FlatButton(
+          TextButton(
             onPressed: () {
               Navigator.pop(context);
               setState(() {
